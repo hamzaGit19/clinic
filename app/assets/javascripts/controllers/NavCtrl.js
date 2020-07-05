@@ -1,10 +1,13 @@
 angular
   .module('clinic')
   .controller('NavCtrl', function($scope, Auth, $rootScope){
+    vm = this;
+    vm.location = location.hash;
+    $scope.location = location.hash;
+    console.log('dude: ',  $scope.location = location.hash);
     $scope.signedIn = Auth.isAuthenticated;
     $scope.logout = Auth.logout;
-    console.log('in nav 2')
-
+    // debugger;
     Auth.currentUser().then(function (user){
       $rootScope.user = user
     });

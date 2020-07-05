@@ -8,6 +8,11 @@ angular
         templateUrl: 'views/home.html',
         controller: 'HomeCtrl'
       })
+      .state('services', {
+        url: '/services',
+        templateUrl: 'views/services.html',
+        controller: 'ServicesCtrl'
+      })
       .state('login', {
         url: '/login',
         templateUrl: 'views/login.html',
@@ -28,6 +33,7 @@ angular
           })
         }
       })
+
     $urlRouterProvider.otherwise('/home')
     // $locationProvider.html5Mode({
     //     enabled: true,
