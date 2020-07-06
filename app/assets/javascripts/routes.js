@@ -1,7 +1,7 @@
 angular
   .module('clinic')
   .config(function($stateProvider, $urlRouterProvider, $locationProvider){
-      console.log('route tak')
+    $locationProvider.hashPrefix('');
     $stateProvider
       .state('home', {
         url: '/home',
@@ -12,6 +12,11 @@ angular
         url: '/services',
         templateUrl: 'views/services.html',
         controller: 'ServicesCtrl'
+      })
+      .state('appointment', {
+        url: '/appointment/new',
+        templateUrl: 'views/appointment.html',
+        controller: 'AppointmentCtrl'
       })
       .state('login', {
         url: '/login',
@@ -33,10 +38,5 @@ angular
           })
         }
       })
-
     $urlRouterProvider.otherwise('/home')
-    // $locationProvider.html5Mode({
-    //     enabled: true,
-    //     requireBase: false
-    //     });
   })

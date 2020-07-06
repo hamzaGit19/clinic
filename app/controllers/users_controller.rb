@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
+	skip_before_filter :authenticate_user!
+	# before_filter :authenticate_user!
+
 	def show
-		user = User.find(params[:id])
-		render json: user
+		users = User.all
+		render json: users
 	end
 end

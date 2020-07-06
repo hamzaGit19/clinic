@@ -1,4 +1,4 @@
 (function(){
     angular
-      .module('clinic', ['ui.router', 'Devise', 'templates'])
+      .module('clinic', ['ui.router', 'Devise', 'templates', 'ngResource'])
   }())
