@@ -17,10 +17,21 @@
   "vendor": {
     "name": "bower-rails generated vendor assets",
     "dependencies": {
-      "angular": "v1.5.8",
-      "angular-ui-router": "latest",
+      "angular": "~1.5.x",
+      "angular-ui-router": "^1.0.8",
       "angular-devise": "latest",
-      "angular-resource": "^1.8.0"
+      "angular-resource": "~1.5.x",
+      "angular-messages": "~1.5.x",
+      "angular-material": "1.1.0",
+      "angular-animate": "~1.5.x",
+      "angular-aria": "1.5.5",
+      "moment": "~2.10.6"
+    },
+    "resolutions": {
+      "angular": "~1.5.x",
+      "angular-animate": "~1.5.x",
+      "moment": "~2.10.6",
+      "angular-messages": "~1.5.x"
     }
   }
 }
