@@ -16,7 +16,12 @@
 //= require angular-resource
 //= require angular-ui-router
 //= require angular-devise
+//= require angular-material
+//= require angular-animate
+//= require angular-aria
+//= require moment
 //= require angular-rails-templates
+
 //= require bootstrap-sprockets
 //= require swiper
 //= require_tree .
