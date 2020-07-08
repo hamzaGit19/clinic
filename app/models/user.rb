@@ -1,6 +1,15 @@
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  attr_accessor :skip_password_validation
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  enum role: [:client, :admin]
+
+  protected
+
+  def password_required?
+    return false if skip_password_validation
+    super
+  end
 end
