@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 20200706125219) do
 
   create_table "appointments", force: :cascade do |t|
     t.string   "_type"
+    t.datetime "time"
+    t.string   "comments"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -30,6 +32,9 @@ ActiveRecord::Schema.define(version: 20200706125219) do
     t.datetime "remember_created_at"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "name"
+    t.string   "role"
+    t.string   "phone_number"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
