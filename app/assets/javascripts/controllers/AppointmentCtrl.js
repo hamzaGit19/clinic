@@ -1,6 +1,6 @@
 angular
   .module('clinic')
-  .controller('AppointmentCtrl', function($scope, AppointmentResource, ClientResource){
+  .controller('AppointmentCtrl', function($scope, AppointmentResource, ClientResource, notificationService){
     $scope.types = [
       {
         name: 'Diet Plans',
@@ -17,7 +17,8 @@ angular
     ]
 
     $scope.user = null;
-
+    $scope.appointment = null;
+    notificationService.success('cool')
      $scope.populate = function() {
       var times = [];
       var hours, minutes, ampm;
@@ -34,7 +35,14 @@ angular
     }
 
     $scope.save = function () {
-      ClientResource.create({user: $scope.user}).then(function(user){
+      let a = $scope.appointment.time;
+      let b = $scope.appointment.date;
+      $scope.appointment.time = moment(b.toDateString() +" " + a)._d;
+      ClientResource.create({user: $scope.user}).$promise.then(function(user){
+        $scope.appointment.user_id = user.id;
+        AppointmentResource.create({ appointment: $scope.appointment }).$promise.then(function (appointment) {
+          $scope.appointment = null;
+        });
       });
     };
   })

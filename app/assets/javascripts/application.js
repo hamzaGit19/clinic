@@ -21,6 +21,7 @@
 //= require angular-aria
 //= require moment
 //= require angular-rails-templates
+//= require notifyjs
 
 //= require bootstrap-sprockets
 //= require swiper

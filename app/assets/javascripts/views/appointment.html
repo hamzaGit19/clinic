@@ -9,7 +9,7 @@
      <div class="row">
           <div class="col-md-6">
               <div class="form-group">
-                  <input type="text" name="txtName" class="form-control" placeholder="Your Name *" value="" ng-model='user.name'/>
+                  <input type="text" name="txtName" class="form-control" placeholder="Your Name *" value="" ng-model='user.name' required/>
               </div>
               <div class="form-group">
                   <input type="text" name="txtEmail" class="form-control" placeholder="Your Email *" value="" ng-model='user.email'/>
@@ -19,22 +19,23 @@
               </div>
               <div class="form-group">
                 <div class="form-group">
-                  <select class="form-control" id="sel1">
-                    <option ng-repeat="plan in types"  disabled selected value="{{plan.value}}">{{plan.name}}</option>
+                  <select class="form-control" ng-model='appointment.plan_type' id="sel1">
+                    <option value="" selected>Select a plan</option>
+                    <option ng-repeat="plan in types" value="{{plan.value}}">{{plan.name}}</option>
                   </select>
                 </div>
               </div>
               <div class="form-group">
                 <div class="form-group">
-                  <select class="form-control" name="repeatSelect" id="repeatSelect" ng-model="data.model">
-                    <option value="" disabled selected>Select a timeslot</option>
+                  <select class="form-control"  ng-model='appointment.time' name="repeatSelect" id="repeatSelect" ng-model="data.model">
+                    <option value="" selected>Select a timeslot</option>
                     <option ng-repeat="option in populate()" value="{{option}}">{{option}}</option>
                   </select>
                 </div>
               </div>
               <div class="form-group">
-                <md-datepicker ng-model="data.date" placeholder="Some Date" class="form-control"></md-datepicker>
-            </div>
+                <md-datepicker ng-model="appointment.date" placeholder="Some Date" class="form-control"></md-datepicker>
+              </div>
 
               <div class="form-group">
                 <input type="submit" ng-click="save(user)" value="Book an appointment!" />
@@ -42,7 +43,7 @@
           </div>
           <div class="col-md-6">
               <div class="form-group">
-                  <textarea name="txtMsg" class="form-control" placeholder="Your Message *" style="width: 100%; height: 150px;"></textarea>
+                  <textarea name="txtMsg" ng-model='appointment.comments' class="form-control" placeholder="Your Message *" style="width: 100%; height: 150px;"></textarea>
               </div>
           </div>
       </div>

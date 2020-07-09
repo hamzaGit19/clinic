@@ -1,8 +1,16 @@
 (function () {
   'use strict';
+
   angular
     .module('clinic')
-    .factory('AppointmentResource', function ($resource) {
-      return $resource('/appointments'); // Note the full endpoint address
+    .factory('AppointmentResource', AppointmentResource);
+  AppointmentResource.$inject = ['$resource'];
+
+  function AppointmentResource ($resource) {
+    var clientURL =  '/appointments';
+
+    return $resource(clientURL, {id: '@id'}, {
+      'create': { method: 'POST' },
     });
+  }
 })();
