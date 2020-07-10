@@ -24,7 +24,6 @@ class AppointmentsController < ApplicationController
   # POST /appointments
   # POST /appointments.json
   def create
-    byebug
     @appointment = Appointment.new(appointment_params)
     if @appointment.save
       render json: @appointment
